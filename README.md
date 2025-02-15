@@ -16,3 +16,18 @@ pnpm add @taepay/sdk
 ```bash
 bun add @taepay/sdk
 ```
+
+## Usage
+### Collection
+```ts
+const taepay = new Taepay(apiKey, apiSecret);
+
+const response = taepay.authorize().collect(
+  operator,
+  provider,
+  {
+    firstName: '',
+    lastName: ''
+  }
+);
+```
