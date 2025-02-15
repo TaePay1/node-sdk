@@ -1,5 +1,10 @@
+import axios from 'axios';
+
 export default class Service {
-  constructor(string apiKey, string apiSecret) {
+  private AxiosInstance http;
+  
+  constructor(string apiKey, string apiSecret, 'live'|'sandbox' environment = 'live') {
+    this.http = axios.create();
     
   }
 
@@ -7,7 +12,12 @@ export default class Service {
     return this;
   }
 
-  public collect(string provider, string operator, Customer customer) {
+  async collect(string provider, string operator, Customer customer) {
+    const response = await this.http.post('collections', {
+      provider,
+      operator,
+      customer
+    })
     
   }
 }
